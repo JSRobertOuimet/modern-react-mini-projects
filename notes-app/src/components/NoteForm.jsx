@@ -87,7 +87,7 @@ const NoteForm = ({ notes, setNotes }) => {
                         onChange={handleChange}
                         required={true}
                     />
-                    <button className="w-full bg-purple-500 text-white py-2 rounded-lg cursor-pointer hover: bg-purple-600">
+                    <button className="w-full bg-purple-500 text-white py-2 rounded-lg cursor-pointer hover:bg-purple-600">
                         Add Note
                     </button>
                 </form>
