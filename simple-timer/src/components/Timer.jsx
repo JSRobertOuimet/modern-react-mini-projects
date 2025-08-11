@@ -39,8 +39,8 @@ const Timer = () => {
             <TimerDisplay time={time} />
             <TimerControls
                 isRunning={isRunning}
-                onToggle={toggleTimer}
-                onReset={resetTimer}
+                toggleTimer={toggleTimer}
+                resetTimer={resetTimer}
             />
         </div>
     );

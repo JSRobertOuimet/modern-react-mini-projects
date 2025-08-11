@@ -1,6 +1,6 @@
 import { useEffect, useRef } from "react";
 
-const TimerControls = ({ isRunning, onToggle, onReset }) => {
+const TimerControls = ({ isRunning, toggleTimer, resetTimer }) => {
     const startButtonRef = useRef(null);
 
     useEffect(() => {
@@ -14,12 +14,12 @@ const TimerControls = ({ isRunning, onToggle, onReset }) => {
             <button
                 className="mt-3 bg-green-500 text-white mr-3 px-4 py-2 rounded hover:bg-green-600"
                 ref={startButtonRef}
-                onClick={onToggle}>
+                onClick={toggleTimer}>
                 {isRunning ? "Pause" : "Start"}
             </button>
             <button
                 className="mt-3 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
-                onClick={onReset}>
+                onClick={resetTimer}>
                 Reset
             </button>
         </>
