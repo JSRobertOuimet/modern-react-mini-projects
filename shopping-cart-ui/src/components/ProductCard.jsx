@@ -1,4 +1,8 @@
+import { useCart } from "../context/CartContext";
+
 const ProductCard = ({ product }) => {
+    const { addToCart } = useCart();
+
     return (
         <div className="bg-white rounded-lg shadow p-4 flex flex-col">
             <img
@@ -13,6 +17,11 @@ const ProductCard = ({ product }) => {
             <p className="font-bold text-lg">
                 ${product.price.toFixed(2)}
             </p>
+            <button
+                className="bg-blue-600 text-white mt-3 px-4 py-2 rounded transition hover:bg-blue-700 cursor-pointer"
+                onClick={() => addToCart(product)}>
+                Add to Cart
+            </button>
         </div>
     );
 };
