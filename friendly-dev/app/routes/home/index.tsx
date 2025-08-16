@@ -1,4 +1,5 @@
 import type { Route } from "./+types/index";
+import Hero from "~/components/Hero";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -10,7 +11,7 @@ export function meta({}: Route.MetaArgs) {
 export default function HomePage() {
     return (
         <section>
-            <h1 className="text-3xl font-bold mb-2">Home</h1>
+            <Hero name="JS" />
         </section>
     );
 }
