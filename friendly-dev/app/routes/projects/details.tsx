@@ -2,7 +2,6 @@ import type { Route } from "./+types/details";
 import type { Project } from "~/types";
 import { Link } from "react-router";
 import { FaArrowLeft } from "react-icons/fa";
-import { FaA } from "react-icons/fa6";
 
 export async function clientLoader({
     request,

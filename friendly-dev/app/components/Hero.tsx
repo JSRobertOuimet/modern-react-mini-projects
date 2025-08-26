@@ -1,8 +1,9 @@
+import { Link } from "react-router";
+
 type HeroProps = {
     name?: string;
     text?: string;
 };
-import { Link } from "react-router";
 
 const Hero: React.FC<HeroProps> = ({
     name = "John",
