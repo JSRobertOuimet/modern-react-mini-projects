@@ -4,9 +4,9 @@
     "type": "module",
     "scripts": {
         "build": "react-router build",
-        "front": "react-router dev",
-        "back": "json-server data/db.json --port 8000",
-        "dev": "concurrently \"npm run front\" \"npm run back\"",
+        "client": "react-router dev",
+        "server": "json-server data/db.json --port 8000",
+        "dev": "concurrently \"npm run client\" \"npm run server\"",
         "start": "react-router-serve ./build/server/index.js",
         "typecheck": "react-router typegen && tsc"
     },
@@ -23,6 +23,7 @@
     },
     "devDependencies": {
         "@react-router/dev": "^7.7.1",
+        "@tailwindcss/typography": "^0.5.16",
         "@tailwindcss/vite": "^4.1.4",
         "@types/node": "^20",
         "@types/react": "^19.1.2",
