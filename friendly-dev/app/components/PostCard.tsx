@@ -14,7 +14,7 @@ const PostCard = ({post}: {post: PostMeta}) => {
             <p className="text-gray-300 mb-4">{post.excerpt}</p>
             <Link
                 to={`/blog/${post.slug}`}
-                className="text-blue-300 text-sm hover:underline">
+                className="text-blue-400 text-sm hover:underline">
                 Read More
             </Link>
         </article>

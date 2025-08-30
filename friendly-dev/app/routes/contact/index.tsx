@@ -38,7 +38,7 @@ const ContactPage = ({ actionData }: Route.ComponentProps) => {
     const errors = actionData?.errors || {};
 
     return (
-        <div className="max-w-3xl mx-auto mt-12 px-6 py-8 bg-gray-900">
+        <div className="max-w-3xl mx-auto px-6 py-6 bg-gray-900">
             <h1 className="text-3xl font-bold mb-8">Contact</h1>
 
             {actionData?.message ? (
