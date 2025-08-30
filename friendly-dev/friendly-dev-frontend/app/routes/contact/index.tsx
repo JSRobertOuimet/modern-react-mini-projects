@@ -42,7 +42,7 @@ const ContactPage = ({ actionData }: Route.ComponentProps) => {
             <h1 className="text-3xl font-bold mb-8">Contact</h1>
 
             {actionData?.message ? (
-                <p className="p-2 my-6 bg-green-100 text-green-900 rounded rounded-lg border border-green-500 shadow-md">
+                <p className="p-2 my-6 bg-green-100 text-green-900 rounded-lg border border-green-500 shadow-md">
                     {actionData.message}
                 </p>
             ) : null}
@@ -119,7 +119,7 @@ const ContactPage = ({ actionData }: Route.ComponentProps) => {
                         </p>
                     )}
                 </div>
-                <button className="w-full bg-blue-600 text-white py-2 rounded-lg bg-blue-600 hover:bg-blue-700 cursor-pointer">
+                <button className="w-full text-white py-2 rounded-lg bg-blue-600 hover:bg-blue-700 cursor-pointer">
                     Send Message
                 </button>
             </Form>
