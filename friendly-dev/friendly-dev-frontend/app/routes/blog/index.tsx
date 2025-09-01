@@ -1,25 +1,33 @@
 import { useState } from "react";
 import type { Route } from "./+types";
-import type { PostMeta } from "~/types";
+import type { Post, StrapiResponse, StrapiPost } from "~/types";
 import PostFilter from "~/components/PostFilter";
 import PostCard from "~/components/PostCard";
 import Pagination from "~/components/Pagination";
 
 export async function loader({
     request,
-}: Route.LoaderArgs): Promise<{ posts: PostMeta[] }> {
-    const url = new URL("/posts-meta.json", request.url);
-    const res = await fetch(url.href);
+}: Route.LoaderArgs): Promise<{ posts: Post[] }> {
+    const res = await fetch(
+        `${import.meta.env.VITE_API_URL}/posts?populate=image&sort=date:desc`
+    );
 
     if (!res.ok) throw new Error("Failed to fetch data.");
 
-    const data = await res.json();
+    const json: StrapiResponse<StrapiPost> = await res.json();
+    const posts = json.data.map(item => ({
+        id: item.id,
+        image: item.image?.url
+            ? `${import.meta.env.VITE_STRAPI_URL}${item.image.url}`
+            : "/images/no-image.png",
+        title: item.title,
+        slug: item.slug,
+        excerpt: item.excerpt,
+        date: item.date,
+        body: item.body,
+    }));
 
-    data.sort((a: PostMeta, b: PostMeta) => {
-        return new Date(b.date).getTime() - new Date(a.date).getTime();
-    });
-
-    return { posts: data };
+    return { posts };
 }
 
 const BlogPage = ({ loaderData }: Route.ComponentProps) => {
@@ -34,7 +42,7 @@ const BlogPage = ({ loaderData }: Route.ComponentProps) => {
             post.excerpt.toLowerCase().includes(query)
         );
     });
-    const postsPerPage = 3;
+    const postsPerPage = 2;
     const totalPages = Math.ceil(filteredPosts.length / postsPerPage);
     const indexOfLastPost = currentPage * postsPerPage;
     const indexOfFirstPost = indexOfLastPost - postsPerPage;
@@ -42,6 +50,8 @@ const BlogPage = ({ loaderData }: Route.ComponentProps) => {
         indexOfFirstPost,
         indexOfLastPost
     );
+
+    console.log(posts);
 
     return (
         <div className="max-w-3xl mx-auto px-6 py-6 bg-gray-900">

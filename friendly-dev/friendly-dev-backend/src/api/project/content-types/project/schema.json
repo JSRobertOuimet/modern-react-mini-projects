@@ -12,14 +12,17 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "image": {
       "type": "media",
       "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images",
         "files",
@@ -28,13 +31,16 @@
       ]
     },
     "url": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "date": {
-      "type": "date"
+      "type": "date",
+      "required": true
     },
     "category": {
       "type": "enumeration",
+      "required": true,
       "default": "Front-end",
       "enum": [
         "Front-end",
@@ -46,6 +52,7 @@
     },
     "featured": {
       "type": "boolean",
+      "required": true,
       "default": false
     }
   }

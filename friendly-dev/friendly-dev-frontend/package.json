@@ -4,9 +4,7 @@
     "type": "module",
     "scripts": {
         "build": "react-router build",
-        "client": "react-router dev",
-        "server": "json-server data/db.json --port 8000",
-        "dev": "concurrently \"npm run client\" \"npm run server\"",
+        "dev": "react-router dev",
         "start": "react-router-serve ./build/server/index.js",
         "typecheck": "react-router typegen && tsc"
     },
@@ -29,7 +27,6 @@
         "@types/react": "^19.1.2",
         "@types/react-dom": "^19.1.2",
         "concurrently": "^9.2.0",
-        "json-server": "^1.0.0-beta.3",
         "tailwindcss": "^4.1.4",
         "typescript": "^5.8.3",
         "vite": "^6.3.3",

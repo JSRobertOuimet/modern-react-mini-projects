@@ -1,6 +1,5 @@
 import type { Route } from "./+types";
-import type { StrapiProject, StrapiResponse } from "~/types";
-import type { Project } from "~/types";
+import type { Project, StrapiResponse, StrapiProject } from "~/types";
 import { useState } from "react";
 import ProjectCard from "~/components/ProjectCard";
 import Pagination from "~/components/Pagination";
@@ -12,7 +11,7 @@ export async function loader({
     const res = await fetch(
         `${import.meta.env.VITE_API_URL}/projects?populate=*`
     );
-    const json:StrapiResponse<StrapiProject> = await res.json();
+    const json: StrapiResponse<StrapiProject> = await res.json();
 
     const projects = json.data.map(item => ({
         id: item.id,
