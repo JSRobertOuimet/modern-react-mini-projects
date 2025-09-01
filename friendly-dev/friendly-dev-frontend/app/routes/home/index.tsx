@@ -12,7 +12,7 @@ import AboutPreview from "~/components/AboutPreview";
 
 export function meta({}: Route.MetaArgs) {
     return [
-        { title: "The Friedly Dev" },
+        { title: "The Friendly Dev" },
         { name: "description", content: "Portfolio of John Doe." },
     ];
 }
@@ -45,7 +45,7 @@ export async function loader({ request }: Route.LoaderArgs): Promise<{
         title: item.title,
         description: item.description,
         image: item.image?.url
-            ? `${import.meta.env.VITE_STRAPI_URL}${item.image.url}`
+            ? `${item.image.url}`
             : "/images/no-image.png",
         url: item.url,
         date: item.date,
@@ -61,7 +61,7 @@ export async function loader({ request }: Route.LoaderArgs): Promise<{
         date: item.date,
         body: item.body,
         image: item.image?.url
-            ? `${import.meta.env.VITE_STRAPI_URL}${item.image.url}`
+            ? `${item.image.url}`
             : "/images/no-image.png",
     }));
 

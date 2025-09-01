@@ -18,7 +18,7 @@ export async function loader({
     const posts = json.data.map(item => ({
         id: item.id,
         image: item.image?.url
-            ? `${import.meta.env.VITE_STRAPI_URL}${item.image.url}`
+            ? `${item.image.url}`
             : "/images/no-image.png",
         title: item.title,
         slug: item.slug,
